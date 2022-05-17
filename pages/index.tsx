@@ -31,7 +31,9 @@ const HomePage: NextPage<Props> = ({ arts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { data } = await articApi.get<ArticListResponse>("/artworks?limit=9"); // your fetch function here
+  const { data } = await articApi.get<ArticListResponse>(
+    "/artworks?fields=id,title,artist_display,date_display,image_id,thumbnail&page=45&limit=100"
+  ); // your fetch function here
 
   const arts: Datum[] = data.data.map((art) => ({
     ...art,

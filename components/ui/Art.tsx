@@ -11,21 +11,25 @@ export const ArtSection: React.FC<Props> = ({ arts }) => {
       <h2 className="text-4xl font-bold">Little pieces of art</h2>
 
       <ul className="mx-auto w-auto columns-1 gap-3 space-y-3 py-10 sm:columns-2 md:columns-3 lg:columns-3">
-        {arts.map(({ id, title, img, thumbnail }) => (
-          <li key={id} className="break-inside-avoid rounded-l p-4">
-            <Image
-              src={img}
-              alt={title}
-              layout="responsive"
-              width={thumbnail.width}
-              height={thumbnail.height}
-              objectFit="cover"
-              blurDataURL={img}
-              placeholder="blur"
-              className="rounded-lg"
-            />
-          </li>
-        ))}
+        {arts.map(({ id, title, img, thumbnail, image_id }, index) =>
+          image_id != null ? (
+            index < 9 ? (
+              <li key={id} className="break-inside-avoid rounded-l p-4">
+                <Image
+                  src={img}
+                  alt={title}
+                  layout="responsive"
+                  width={thumbnail.width}
+                  height={thumbnail.height}
+                  objectFit="cover"
+                  blurDataURL={img}
+                  placeholder="blur"
+                  className="rounded-lg"
+                />
+              </li>
+            ) : null
+          ) : null
+        )}
       </ul>
 
       <p className="flex cursor-pointer gap-1 text-center font-bold hover:gap-2 hover:underline">
