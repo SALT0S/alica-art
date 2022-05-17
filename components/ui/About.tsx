@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Polonia from "../../../public/img/polonia.png";
+import Polonia from "../../public/img/polonia.png";
 
 export const AboutSection = () => {
   return (

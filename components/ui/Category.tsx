@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import Genadi from "../../../public/img/genadi 1.png";
+import Genadi from "../../public/img/genadi 1.png";
 
 export const CategorySection = () => {
   return (

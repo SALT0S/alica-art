@@ -45,6 +45,11 @@ const nextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+  images: {
+    domains: ["www.artic.edu"],
+    formats: ["image/avif", "image/webp"],
+    ContentSecurityPolicy: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
+  },
 };
 
 module.exports = nextConfig;

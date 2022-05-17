@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PabloPicasso from "../../../public/img/hBz1KIE.jpg";
+import PabloPicasso from "../../public/img/hBz1KIE.jpg";
 
 export const ArtistsSection = () => {
   return (
