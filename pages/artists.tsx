@@ -1,10 +1,11 @@
-import React from "react";
+import type { NextPage } from "next";
+import { Layout } from "../components/Layout";
 
-const ArtistsPage = () => {
+const ArtistsPage: NextPage = () => {
   return (
-    <div>
-      <h1>a</h1>
-    </div>
+    <Layout>
+      <h1 className="py-20">a</h1>
+    </Layout>
   );
 };
 

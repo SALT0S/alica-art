@@ -1,6 +1,7 @@
 export interface ArticListResponse {
   pagination: Pagination;
   data: Datum[];
+  artist: ArtistDatum[];
   info: Info;
   config: Config;
 }
@@ -23,6 +24,13 @@ export interface Datum {
   img: string;
   image_id: string;
   thumbnail: Thumbnail;
+}
+
+export interface ArtistDatum {
+  id: number;
+  title: string;
+  birth_date: number;
+  death_date: number;
 }
 
 export interface Info {

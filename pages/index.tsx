@@ -12,17 +12,18 @@ import {
   CategorySection,
 } from "../components/ui";
 
-import { ArticListResponse, Datum } from "../interfaces";
+import { ArticListResponse, ArtistDatum, Datum } from "../interfaces";
 
 interface Props {
   arts: Datum[];
+  artist: ArtistDatum[];
 }
 
-const HomePage: NextPage<Props> = ({ arts }) => {
+const HomePage: NextPage<Props> = ({ arts, artist }) => {
   return (
     <Layout>
       <HeroSection />
-      <ArtistsSection />
+      <ArtistsSection artist={artist} />
       <ArtSection arts={arts} />
       <CategorySection />
       <AboutSection />
@@ -32,17 +33,20 @@ const HomePage: NextPage<Props> = ({ arts }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { data } = await articApi.get<ArticListResponse>(
-    "/artworks?fields=id,title,artist_display,date_display,image_id,thumbnail&page=45&limit=100"
-  ); // your fetch function here
-
+    "/artworks?fields=id,title,artist_display,date_display,image_id,thumbnail&page=45&limit=20"
+  );
   const arts: Datum[] = data.data.map((art) => ({
     ...art,
     img: `https://www.artic.edu/iiif/2/${art.image_id}/full/843,/0/default.jpg`,
   }));
 
+  const res = await articApi.get<ArticListResponse>("/artists?page=2&limit=10");
+  const artist = res.data.data;
+
   return {
     props: {
       arts,
+      artist,
     },
   };
 };

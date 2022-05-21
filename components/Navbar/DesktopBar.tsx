@@ -6,7 +6,7 @@ import { ActiveLink } from "./ActiveLink";
 
 export const DesktopBar = () => {
   return (
-    <div className="relative">
+    <div className="relative h-auto w-auto">
       <nav
         className="absolute z-10 mt-6 flex w-full items-center justify-between px-4 sm:h-10 sm:px-6 lg:px-8"
         aria-label="Global"
