@@ -10,7 +10,7 @@ export const ArtistsSection: React.FC<Props> = ({ artist }) => {
   return (
     <section className="container mx-auto my-20 max-w-7xl items-center gap-7 px-4 text-center sm:px-6   md:text-left lg:px-8">
       <Swiper slidesPerView={1} spaceBetween={50}>
-        {artist.map(({ id, title, description }, index) => (
+        {artist.map(({ id, title, description }) => (
           <SwiperSlide key={id}>
             <figure className="place-self-center rounded-xl px-8 md:flex md:flex-row-reverse md:gap-10 md:p-0">
               <div className="mx-auto w-32 md:w-1/4">
